@@ -1,0 +1,5 @@
+package LapTrinhWeb_Cha.dao;
+
+public interface UserDao {
+	List<Usermodel> findAll();
+}

@@ -1,0 +1,10 @@
+package LapTrinhWeb_Cha.models;
+
+public class Usermodel implements Serializable {
+	
+	private int id;
+	private String username;
+	private String password;
+	private String images;
+	private String fullname;
+}

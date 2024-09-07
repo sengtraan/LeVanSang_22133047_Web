@@ -1,0 +1,9 @@
+package LapTrinhWeb_Cha.dao;
+
+import LapTrinhWeb_Cha.models.UserModel;
+
+public interface IUserService {
+	UserModel login(String username, String password);
+	UserModel get(String username);
+	UserModel findByUserName(String username);
+}

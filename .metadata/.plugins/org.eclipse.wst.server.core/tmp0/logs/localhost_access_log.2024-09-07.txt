@@ -1,0 +1,13 @@
+127.0.0.1 - - [07/Sep/2024:14:47:47 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:14:47:55 +0700] "GET /HelloWorld/home HTTP/1.1" 200 21
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:14:48:00 +0700] "GET /favicon.ico HTTP/1.1" 404 685
+127.0.0.1 - - [07/Sep/2024:16:27:08 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:16:27:09 +0700] "GET /LapTrinhWebTuan2/WEB-INF/classes/LapTrinhWeb_Cha/configs/DBConnectionSQL.java HTTP/1.1" 404 605
+127.0.0.1 - - [07/Sep/2024:19:43:09 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:19:43:10 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1191
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:19:43:29 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1236
+127.0.0.1 - - [07/Sep/2024:20:00:03 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:20:00:04 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1191
+127.0.0.1 - - [07/Sep/2024:20:12:29 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:20:12:29 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1191
+0:0:0:0:0:0:0:1 - - [07/Sep/2024:20:12:35 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1236

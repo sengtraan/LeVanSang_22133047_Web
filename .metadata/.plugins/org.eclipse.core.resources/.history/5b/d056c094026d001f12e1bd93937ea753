@@ -1,0 +1,14 @@
+package LapTrinhWeb_Cha.dao;
+
+import java.util.List;
+
+import LapTrinhWeb_Cha.models.Usermodel;
+
+public interface IUserDao {
+	List<Usermodel> findAll();
+	
+	Usermodel findById(int id);
+	
+	void insert(Usermodel user);
+	
+}
