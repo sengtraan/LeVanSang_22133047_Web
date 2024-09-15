@@ -2,7 +2,7 @@ package LapTrinhWeb_Cha.controllers;
 
 import java.io.IOException;
 
-import LapTrinhWeb_Cha.Constant;
+import LapTrinhWeb_Cha.utils.Constant;
 import LapTrinhWeb_Cha.dao.impl.UserServiceImpl;
 import LapTrinhWeb_Cha.models.UserModel;
 import jakarta.servlet.ServletException;

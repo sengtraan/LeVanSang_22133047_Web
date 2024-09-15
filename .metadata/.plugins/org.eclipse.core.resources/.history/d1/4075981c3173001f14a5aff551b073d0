@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+.alert {
+    padding: 10px; /* Giảm padding để khung nhỏ gọn hơn */
+    margin: 20px auto; /* Căn giữa khung thông báo */
+    width: 50%; /* Độ rộng alert */
+    border-width: 1px; /* Giảm độ rộng viền */
+    border-radius: 5px; /* Tạo viền bo tròn */
+    text-align: center; /* Căn giữa văn bản */
+    font-size: 16px; /* Tùy chỉnh kích thước chữ */
+}

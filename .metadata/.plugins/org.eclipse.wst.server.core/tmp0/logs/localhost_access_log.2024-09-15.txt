@@ -1,0 +1,13 @@
+127.0.0.1 - - [15/Sep/2024:15:48:31 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:48:32 +0700] "GET /LapTrinhWebTuan2/register HTTP/1.1" 200 2416
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:48:32 +0700] "GET /favicon.ico HTTP/1.1" 404 685
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:26 +0700] "POST /LapTrinhWebTuan2/register HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:26 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1472
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:33 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1569
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:42 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1569
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:44 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1578
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:44 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1578
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:49:49 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 200 1578
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:55:48 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1472
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:55:50 +0700] "GET /LapTrinhWebTuan2/views/register.jsp HTTP/1.1" 200 2416
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:15:56:19 +0700] "POST /LapTrinhWebTuan2/views/register HTTP/1.1" 404 713
