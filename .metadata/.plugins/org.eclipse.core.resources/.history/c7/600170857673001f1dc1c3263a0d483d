@@ -1,0 +1,16 @@
+package LapTrinhWeb_Cha.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
+
+@Controller
+public class LogoutController {
+
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();  // Hủy session hiện tại
+        return "redirect:/login.jsp";  // Chuyển hướng về trang đăng nhập
+    }
+}

@@ -46,6 +46,11 @@ p {
 			out.print("<p>Error: Account not found.</p>");
 		}
 		%>
+		<div class="form-group mt-3" align="center">
+			<button type="button" class="btn btn-primary"
+				onclick="window.location.href='${pageContext.request.contextPath}/logout'">Đăng
+				xuất</button>
+		</div>
 	</div>
 </body>
 </html>
