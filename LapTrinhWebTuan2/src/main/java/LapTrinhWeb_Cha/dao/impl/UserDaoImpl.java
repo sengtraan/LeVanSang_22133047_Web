@@ -28,7 +28,7 @@ public class UserDaoImpl extends DBConnectionSQL implements IUserDao {
 
 			while (rs.next()) {
 				list.add(new UserModel(rs.getInt("id"), rs.getString("username"), rs.getString("email"),
-						rs.getString("password"), rs.getString("images"), rs.getString("fullname"),
+						rs.getString("password"), rs.getString("fullname"),
 						rs.getString("avatar"), rs.getInt("roleid"), rs.getString("phone"), rs.getDate("createDate")
 
 				));
@@ -56,7 +56,6 @@ public class UserDaoImpl extends DBConnectionSQL implements IUserDao {
 				user.setUsername(rs.getString("username"));
 				user.setFullname(rs.getString("fullname"));
 				user.setPassword(rs.getString("password"));
-				user.setImages(rs.getString("images"));
 				user.setAvatar(rs.getString("avatar"));
 				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
 				user.setPhone(rs.getString("phone"));
@@ -90,6 +89,7 @@ public class UserDaoImpl extends DBConnectionSQL implements IUserDao {
 			ps.setString(7,user.getPhone());
 			ps.setDate(8, user.getCreatedDate());
 			ps.executeUpdate();
+			System.out.println("Executing SQL: " + ps.toString());
 		} catch (Exception e) {e.printStackTrace();}
 	}
 

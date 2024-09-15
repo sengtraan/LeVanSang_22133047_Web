@@ -20,7 +20,7 @@ bootstrap.min.css"
 				<div class="col-12 col-md-7">
 					<div class="register-form shadow-sm p-4">
 						<h2 class="text-center mb-4">Tạo tài khoản mới</h2>
-						<form action="register" method="post">
+						<form action="${pageContext.request.contextPath}/register" method="post">
 							<c:if test="${alert != null}">
 								<h3 class="alert alert-danger">${alert}</h3>
 							</c:if> 

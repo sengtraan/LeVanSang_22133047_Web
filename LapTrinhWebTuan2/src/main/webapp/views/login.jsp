@@ -29,7 +29,7 @@ bootstrap.min.css"
 						<h6 class="alert alert-danger">${alert}</h6>
 					</c:if>
 					<div class="form-group">
-						<label for="username">Email:</label> <input type="text"
+						<label for="username">Username:</label> <input type="text"
 							id="username" name="username" class="form-control" />
 					</div>
 					<div class="form-group">
