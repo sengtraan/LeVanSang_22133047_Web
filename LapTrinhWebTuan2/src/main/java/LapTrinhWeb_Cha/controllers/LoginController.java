@@ -18,24 +18,27 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		HttpSession session = req.getSession(false);
 		if (session != null && session.getAttribute("account") != null) {
 			resp.sendRedirect(req.getContextPath() + "/waiting");
 			return;
 		}
 
-		// Check cookie
-		Cookie[] cookies = req.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("username")) {
-					session = req.getSession(true);
-					session.setAttribute("username", cookie.getValue());
-					resp.sendRedirect(req.getContextPath() + "/waiting");
-					return;
-				}
-			}
-		}
+//		String username = null;
+//		Cookie[] cookies = req.getCookies();
+//		if (cookies != null) {
+//			for (Cookie cookie : cookies) {
+//				if (cookie.getName().equals(Constant.COOKIE_REMEMBER)) {
+//					username = cookie.getValue();
+//					session = req.getSession(true);
+//	                session.setAttribute("username", cookie.getValue());
+//					break;
+//				}
+//			}
+//		}
+//
+//		req.setAttribute("username", username); // Set username attribute
 		req.getRequestDispatcher("views/login.jsp").forward(req, resp);
 	}
 
@@ -44,14 +47,16 @@ public class LoginController extends HttpServlet {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		boolean isRememberMe = false;
-		String remember = req.getParameter("remember");
+//		boolean isRememberMe = false;
+//		String remember = req.getParameter("remember");
+		Boolean isRememberMe = "on".equals(req.getParameter("remember"));
 
-		if ("on".equals(remember)) {
-			isRememberMe = true;
-		}
+//		if ("on".equals(remember)) {
+//			isRememberMe = true;
+//		}
 		String alertMsg = "";
 
 		if (username.isEmpty() || password.isEmpty()) {
@@ -62,13 +67,17 @@ public class LoginController extends HttpServlet {
 		}
 
 		UserServiceImpl service = new UserServiceImpl();
-
 		UserModel user = service.login(username, password);
+
 		if (user != null) {
 			HttpSession session = req.getSession(true);
 			session.setAttribute("account", user);
+
 			if (isRememberMe) {
 				saveRemeberMe(resp, username);
+				req.setAttribute("remember", isRememberMe);
+			} else {
+				deleteRememberMe(resp);
 			}
 
 			resp.sendRedirect(req.getContextPath() + "/waiting");
@@ -80,8 +89,17 @@ public class LoginController extends HttpServlet {
 	}
 
 	private void saveRemeberMe(HttpServletResponse response, String username) {
-		Cookie cookie = new Cookie(Constant.COOKIE_REMEMBER, username);
-		cookie.setMaxAge(30 * 60);
+//		Cookie cookie = new Cookie(Constant.COOKIE_REMEMBER, username);
+		Cookie cookie = new Cookie("username", username);
+		cookie.setMaxAge(30);
+		cookie.setPath("/");
+		response.addCookie(cookie);
+	}
+
+	private void deleteRememberMe(HttpServletResponse response) {
+		Cookie cookie = new Cookie("username", "");
+		cookie.setMaxAge(0); // Xóa cookie ngay lập tức
+		cookie.setPath("/");
 		response.addCookie(cookie);
 	}
 }

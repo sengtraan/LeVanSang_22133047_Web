@@ -19,7 +19,7 @@ public class WaitingController extends HttpServlet {
 	    HttpSession session= req.getSession();
 	    if(session != null && session.getAttribute("account") != null) {
 	        UserModel u=(UserModel) session.getAttribute("account");
-//	        req.setAttribute("username", u.getUserName());
+	        req.setAttribute("username", u.getUsername());
 	        session.setAttribute("account", u);
 	        req.setAttribute("account", u);
 	        if(u.getRoleid()==1) {

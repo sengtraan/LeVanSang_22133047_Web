@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="LapTrinhWeb_Cha.controllers.LoginController"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,33 @@ bootstrap.min.css"
 	rel="stylesheet">
 <title>Đăng nhập tài khoản</title>
 </head>
+<%
+String username = "";
+Cookie[] cookies = request.getCookies();
+Boolean remember = (Boolean) request.getAttribute("remember");
+if ((remember != null && remember == false)) {
+	return;
+} else if (cookies != null) {
+	for (Cookie cookie : cookies) {
+		if (cookie.getName().equals("username")) {
+	username = cookie.getValue();
+	break;
+		}
+	}
+}
+// if (cookies != null) {
+// 	if (remember == false) {
+// 		return;
+// 	} else {
+// 		for (Cookie cookie : cookies) {
+// 	if (cookie.getName().equals("username")) {
+// 		username = cookie.getValue();
+// 		break;
+// 	}
+// 		}
+// 	}
+// }
+%>
 <body>
 	<header class="row">
 		<div class="col">
@@ -30,15 +58,36 @@ bootstrap.min.css"
 					</c:if>
 					<div class="form-group">
 						<label for="username">Username:</label> <input type="text"
-							id="username" name="username" class="form-control" />
+							id="username" name="username" class="form-control"
+							value="<%=username%>" />
 					</div>
 					<div class="form-group">
-						<label for="password">Mật khẩu: </label> <input type="password"
+						<label for="password">Password: </label> <input type="password"
 							id="password" name="password" class="form-control" />
+					</div>
+					<div class="row mb-4">
+						<div class="col d-flex justify-content-center">
+							<!-- Checkbox -->
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="on"
+									id="remember" name="remember"
+									<%=(username != null && !username.isEmpty()) ? "checked" : ""%> />
+								<label class="form-check-label" for="remember"> Remember
+									me </label>
+							</div>
+
+						</div>
+
+						<div class="col">
+							<!-- Simple link -->
+							<a href="${pageContext.request.contextPath}/forgotPassword">Forgot
+								password?</a>
+						</div>
 					</div>
 					<div class="form-group mt-3" align="center">
 						<button type="submit" class="btn btn-primary">Đăng nhập</button>
 					</div>
+					<!-- 2 column grid layout for inline styling -->
 					<div class="form-group mt-3" align="center">
 						<!-- Button chuyển hướng tới trang đăng ký -->
 						<button type="button" class="btn btn-secondary"

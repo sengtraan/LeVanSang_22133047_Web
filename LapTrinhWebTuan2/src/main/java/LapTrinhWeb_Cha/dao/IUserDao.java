@@ -18,5 +18,7 @@ public interface IUserDao {
 	boolean checkExistUsername(String username);
 
 	boolean checkExistPhone(String phone);
+	
+    void updatePassword(String username, String newPassword);
 
 }

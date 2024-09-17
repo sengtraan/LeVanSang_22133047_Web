@@ -57,4 +57,14 @@ public class UserServiceImpl implements IUserService {
 		userDao.insert(user);
 	}
 
+	@Override
+	public boolean existsByUsername(String username) {
+		return userDao.findByUserName(username) != null;
+	}
+
+	@Override
+	public void updatePassword(String username, String newPassword) {
+		userDao.updatePassword(username, newPassword);
+	}
+
 }

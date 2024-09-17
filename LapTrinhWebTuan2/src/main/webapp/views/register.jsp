@@ -66,7 +66,7 @@ bootstrap.min.css"
 
 							<div class="mt-3 text-center">
 								<p>
-									Nếu bạn đã có tài khoản? <a href="/login">Đăng nhập</a>
+									Nếu bạn đã có tài khoản? <a href="${pageContext.request.contextPath}/login">Đăng nhập</a>
 								</p>
 							</div>
 						</form>

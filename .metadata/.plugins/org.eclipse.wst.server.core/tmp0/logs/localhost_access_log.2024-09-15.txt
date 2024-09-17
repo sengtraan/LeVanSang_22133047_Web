@@ -121,3 +121,16 @@
 0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:31:52 +0700] "GET /LapTrinhWebTuan2/waiting HTTP/1.1" 200 860
 0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:31:55 +0700] "GET /LapTrinhWebTuan2/logout HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:31:55 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1475
+127.0.0.1 - - [15/Sep/2024:22:44:08 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:09 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1475
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:12 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:12 +0700] "GET /LapTrinhWebTuan2/waiting HTTP/1.1" 200 860
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:13 +0700] "GET /LapTrinhWebTuan2/logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:13 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1475
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:16 +0700] "GET /LapTrinhWebTuan2/views/register.jsp HTTP/1.1" 200 2434
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:30 +0700] "POST /LapTrinhWebTuan2/register HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:30 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1475
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:34 +0700] "POST /LapTrinhWebTuan2/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:34 +0700] "GET /LapTrinhWebTuan2/waiting HTTP/1.1" 200 857
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:35 +0700] "GET /LapTrinhWebTuan2/logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Sep/2024:22:44:35 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 1475

@@ -1,0 +1,38 @@
+package LapTrinhWeb_Cha.controllers;
+
+import java.io.IOException;
+
+import LapTrinhWeb_Cha.dao.impl.UserServiceImpl;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = "/forgotPassword")
+public class ForgotPasswordController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    
+    private UserServiceImpl userService = new UserServiceImpl();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/views/forgotPassword.jsp").forward(req, resp);
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        String newPassword = req.getParameter("newPassword");
+
+        // Kiểm tra xem user có tồn tại không
+        if (userService.existsByUsername(username)) {
+            // Cập nhật mật khẩu mới cho user
+            userService.updatePassword(username, newPassword);
+            resp.sendRedirect(req.getContextPath() + "/login?message=Password updated successfully");
+        } else {
+            // Nếu username không tồn tại, thông báo lỗi
+            resp.sendRedirect(req.getContextPath() + "/forgotPassword?error=User does not exist");
+        }
+    }
+}
