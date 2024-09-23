@@ -163,5 +163,24 @@ public class UserDaoImpl extends DBConnectionSQL implements IUserDao {
         }
 		
 	}
+	
+	@Override
+	public boolean updateUserInfo(UserModel user) {
+	    String sql = "UPDATE [User] SET fullname = ?, phone = ?, images = ? WHERE id = ?";
+	    try (Connection conn = getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	        stmt.setString(1, user.getFullname());
+	        stmt.setString(2, user.getPhone());
+	        stmt.setString(3, user.getImages());
+	        stmt.setInt(4, user.getId());
+
+	        int rowsUpdated = stmt.executeUpdate();
+	        return rowsUpdated > 0;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
 
 }

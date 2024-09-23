@@ -3,6 +3,7 @@ package LapTrinhWeb_Cha.controllers;
 import java.io.IOException;
 
 import LapTrinhWeb_Cha.utils.Constant;
+import LapTrinhWeb_Cha.dao.impl.UserDaoImpl;
 import LapTrinhWeb_Cha.dao.impl.UserServiceImpl;
 import LapTrinhWeb_Cha.models.UserModel;
 import jakarta.servlet.ServletException;
@@ -67,11 +68,13 @@ public class LoginController extends HttpServlet {
 		}
 
 		UserServiceImpl service = new UserServiceImpl();
+		UserDaoImpl userDAO = new UserDaoImpl();
 		UserModel user = service.login(username, password);
 
 		if (user != null) {
 			HttpSession session = req.getSession(true);
 			session.setAttribute("account", user);
+			session.setAttribute("userId", user.getId());
 
 			if (isRememberMe) {
 				saveRemeberMe(resp, username);

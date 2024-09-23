@@ -36,6 +36,7 @@
                     <label class="form-label" for="newPassword">Confirm New Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Reset Password</button>
+                <a href="${pageContext.request.contextPath}/login" class="btn btn-link">Đăng nhập?</a>
             </form>
         </div>
     </div>

@@ -22,6 +22,9 @@ public class WaitingController extends HttpServlet {
 	        req.setAttribute("username", u.getUsername());
 	        session.setAttribute("account", u);
 	        req.setAttribute("account", u);
+	        
+	        session.setAttribute("userId", u.getId());
+	        
 	        if(u.getRoleid()==1) {
 //	        resp.sendRedirect(req.getContextPath()+"/admin/home");
 	        RequestDispatcher rd =req.getRequestDispatcher("/views/login_success.jsp");
@@ -32,7 +35,8 @@ public class WaitingController extends HttpServlet {
 	        resp.sendRedirect(req.getContextPath()+"/home");
 	        }
 	    }else {
-	        resp.sendRedirect(req.getContextPath()+"/login");
+	    	RequestDispatcher rd =req.getRequestDispatcher("/views/home.jsp");
+			rd.forward(req, resp);
 	        }
 	    }
 

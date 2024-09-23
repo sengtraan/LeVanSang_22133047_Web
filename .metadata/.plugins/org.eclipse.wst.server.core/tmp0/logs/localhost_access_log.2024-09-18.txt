@@ -1,0 +1,8 @@
+127.0.0.1 - - [18/Sep/2024:07:29:47 +0700] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:29:47 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 2095
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:29:48 +0700] "GET /favicon.ico HTTP/1.1" 404 685
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:29:50 +0700] "GET /LapTrinhWebTuan2/forgotPassword HTTP/1.1" 200 1953
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:37:51 +0700] "GET /LapTrinhWebTuan2/views/register.jsp HTTP/1.1" 200 2451
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:37:52 +0700] "GET /LapTrinhWebTuan2/login HTTP/1.1" 200 2095
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:37:54 +0700] "GET /LapTrinhWebTuan2/forgotPassword HTTP/1.1" 200 1953
+0:0:0:0:0:0:0:1 - - [18/Sep/2024:07:38:43 +0700] "GET /LapTrinhWebTuan2/forgotPassword HTTP/1.1" 200 1953
