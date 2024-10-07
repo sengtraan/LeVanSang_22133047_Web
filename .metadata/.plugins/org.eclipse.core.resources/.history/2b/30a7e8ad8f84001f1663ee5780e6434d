@@ -1,0 +1,88 @@
+package LapTrinhWeb_Cha.controllers;
+
+import java.io.IOException;
+import java.util.List;
+
+import LapTrinhWeb_Cha.dao.impl.CategoryServiceImpl;
+import LapTrinhWeb_Cha.models.CategoryModel;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = { "/categories", "/admin/category/add" , "/admin/category/insert"
+		, "/admin/category/edit", "/admin/category/update", "/admin/category/delete", "/admin/category/search"})
+public class CategoryController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public CategoryServiceImpl cateService = new CategoryServiceImpl();
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String url = req.getRequestURI();
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		
+		if (url.contains("categories")) {
+			List<CategoryModel> cateList = cateService.getAll();
+			req.setAttribute("cateList", cateList);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category.jsp");
+			dispatcher.forward(req, resp);
+		}
+		else if (url.contains("add")) {
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category_add.jsp");
+			dispatcher.forward(req, resp);
+		}
+		else if (url.contains("edit")) {
+			int id = Integer.parseInt(req.getParameter("id")); //id này lấy ở bên category.jsp vị trí của button này.
+			CategoryModel category = cateService.get(id); 
+			req.setAttribute("cate", category);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category_edit.jsp");
+			dispatcher.forward(req, resp);
+		}
+		else if (url.contains("delete")) {
+			String id = req.getParameter("id");
+			cateService.delete(Integer.parseInt(id));
+			resp.sendRedirect(req.getContextPath() + "/categories");
+		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String url = req.getRequestURI();
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		
+		if (url.contains("insert")) {
+			String categoryname = req.getParameter("cate_name");
+			String active = req.getParameter("active");
+			boolean activee = "true".equalsIgnoreCase(active) || "1".equals(active);
+			String images = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgeCJyyU7_IXMHPZpLnD2u5dzcDE-0RhuyKQ&s";
+			//upload file
+			CategoryModel category = new CategoryModel();
+			category.setCate_name(categoryname);
+			category.setActive(activee);
+			category.setImages(images);
+			cateService.insert(category);
+			
+			resp.sendRedirect(req.getContextPath() + "/categories");
+		}
+		else if (url.contains("update")) {
+			int id = Integer.parseInt(req.getParameter("cate_id"));
+			String categoryname = req.getParameter("cate_name");
+			String active = req.getParameter("active");
+			boolean activee = "true".equalsIgnoreCase(active) || "1".equals(active);
+			String images = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgeCJyyU7_IXMHPZpLnD2u5dzcDE-0RhuyKQ&s";
+			//upload file
+			CategoryModel category = new CategoryModel();
+			category.setCate_id(id);
+			category.setCate_name(categoryname);
+			category.setActive(activee);
+			category.setImages(images);
+			cateService.edit(category);
+			
+			resp.sendRedirect(req.getContextPath() + "/categories");
+		}
+	}
+}

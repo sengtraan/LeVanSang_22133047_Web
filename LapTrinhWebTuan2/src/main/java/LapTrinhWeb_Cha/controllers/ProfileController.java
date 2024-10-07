@@ -78,11 +78,15 @@ public class ProfileController extends HttpServlet {
 	    if (updateSuccess) {
 	    	alertMsg = "Cập nhật thông tin thành công";
 			request.setAttribute("alert", alertMsg);
-			request.getRequestDispatcher("/views/profile.jsp").forward(request, response);
+//			request.getRequestDispatcher("/views/profile.jsp").forward(request, response);
+			session.setAttribute("account", user);
+	        response.sendRedirect(request.getContextPath() + "/profile");
 	    } else {
 	    	alertMsg = "Cập nhật thông tin thất bại";
 			request.setAttribute("alert", alertMsg);
-			request.getRequestDispatcher("/views/profile.jsp").forward(request, response);
+//			request.getRequestDispatcher("/views/profile.jsp").forward(request, response);
+			session.setAttribute("account", user);
+	        response.sendRedirect(request.getContextPath() + "/profile");
 	    }
 	}
 }

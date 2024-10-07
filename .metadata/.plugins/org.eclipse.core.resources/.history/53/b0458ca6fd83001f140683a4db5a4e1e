@@ -1,0 +1,7 @@
+package LapTrinhWeb_Cha.controllers;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class DownloadFileController extends HttpServlet{
+
+}

@@ -60,6 +60,10 @@ button {
             <button type="button" class="btn btn-secondary"
                 onclick="window.location.href='${pageContext.request.contextPath}/profile'">Edit
                 Info</button>
+                
+            <button type="button" class="btn btn-secondary"
+                onclick="window.location.href='${pageContext.request.contextPath}/categories'">Category
+                </button>
         </div>
     </div>
 </body>

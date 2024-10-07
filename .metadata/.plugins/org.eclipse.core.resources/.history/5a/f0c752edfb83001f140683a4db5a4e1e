@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<table>
+  <tr>
+  	<th>STT</th>
+    <th>Images</th>
+    <th>CategoryID</th>
+    <th>CategoryName</th>
+    <th>Active</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>

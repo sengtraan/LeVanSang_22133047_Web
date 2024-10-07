@@ -1,0 +1,9 @@
+package LapTrinhWeb_Cha.controllers;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class DownloadFileController extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+
+}

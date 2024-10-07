@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri = "jakarta.tags.core" %>
+<table border = "1" width = "100%">
+	<tr>
+		<th>STT</th>
+		<th>Images</th>
+		<th>CategoryID</th>
+		<th>CategoryName</th>
+		<th>Active</th>
+		<th>Action</th>
+	</tr>
+	<tr>
+		<c:forEach items="${cateList}" var="cate" varStatus="STT">
+			<tr class="odd gradeX">
+				<td>${STT.index+1}</td>
+				<c:url value="/image?fname=${cate.images}" var="imgUrl"></c:url>
+				<td><img height="150" width="200" src="${imgUrl}" /></td>
+				<td>${cate.cate_id}</td>
+				<td>${cate.cate_name }</td>
+				<td>${cate.active }</td>
+				<td><a
+					href="<c:url value='/admin/category/edit?id=${cate.cate_id }'/>">Sửa</a> 
+					| <a
+					href="<c:url value='/admin/category/delete?id=${cate.cate_id }'/>">Xóa</a>
+				</td>
+			</tr>
+		</c:forEach>
+	</tr>
+</table>
