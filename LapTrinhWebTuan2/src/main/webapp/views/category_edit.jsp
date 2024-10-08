@@ -18,10 +18,13 @@
 	<c:if test="${cate.images.substring(0, 5) == 'https'}">
 		<c:url value="${cate.images}" var="imgUrl"></c:url>
 	</c:if>
-	<img height="150" width="200" src="${imgUrl}" /> <input type="file"
-		id="images" name="images" value="${cate.images}"><br>
+	<img id = "imagess" height="150" width="200" src="${imgUrl}" /> 
+	<input type="file" onchange= "chooseFile(this)" id="images" name="images" value="${cate.images}"><br>
 
-	<label for="active">Active:</label> <br> <input type="text"
-		id="active" name="active" value="${cate.active}"><br>
-	<br> <input type="submit" value="Submit">
+	<label for="active">Active: </label>
+	<input id="activeon" type="radio" name="active" value="1" ${cate.active = "true" ?'checked': ''}>
+	<label for="activeon">Active</label>
+	<input id="activeoff" type="radio" name="active" value="0" ${cate.active = "false"?'checked': ''}>
+	<label for="activeoff">Blocked</label>
+	<br> <input type="submit" value="Update">
 </form>

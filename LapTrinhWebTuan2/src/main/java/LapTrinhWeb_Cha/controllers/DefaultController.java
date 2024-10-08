@@ -10,7 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/")
 public class DefaultController extends HttpServlet {
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Kiểm tra nếu người dùng đã ở trang home thì không chuyển hướng nữa
         String currentPath = request.getRequestURI();

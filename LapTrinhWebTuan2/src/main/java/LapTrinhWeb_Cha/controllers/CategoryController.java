@@ -31,10 +31,21 @@ public class CategoryController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 
 		if (url.contains("categories")) {
-			List<CategoryModel> cateList = cateService.getAll();
-			req.setAttribute("cateList", cateList);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category.jsp");
-			dispatcher.forward(req, resp);
+//			List<CategoryModel> cateList = cateService.getAll();
+//			req.setAttribute("cateList", cateList);
+//			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category.jsp");
+//			dispatcher.forward(req, resp);
+			String keyword = req.getParameter("keyword");
+	        List<CategoryModel> cateList;
+	        
+	        if (keyword != null && !keyword.isEmpty()) {
+	            cateList = cateService.search(keyword); // Tìm kiếm theo từ khóa
+	        } else {
+	            cateList = cateService.getAll(); // Lấy toàn bộ danh mục
+	        }
+	        req.setAttribute("cateList", cateList);
+	        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category.jsp");
+	        dispatcher.forward(req, resp);
 		} else if (url.contains("add")) {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/category_add.jsp");
 			dispatcher.forward(req, resp);
@@ -118,9 +129,12 @@ public class CategoryController extends HttpServlet {
 			String active = req.getParameter("active");
 			boolean activee = "true".equalsIgnoreCase(active) || "1".equals(active);
 			CategoryModel category = new CategoryModel();
+			
+			//Lưu hình cữ
+			CategoryModel cateold = cateService.get(id);
+			String fileold = cateold.getImages();
+			
 //			String images = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgeCJyyU7_IXMHPZpLnD2u5dzcDE-0RhuyKQ&s";
-			
-			
 			String fname="";
 			String uploadPath= UPLOAD_DIRECTORY;
 			File uploadDir = new File(uploadPath);
@@ -136,13 +150,11 @@ public class CategoryController extends HttpServlet {
 					String ext = filename.substring(index + 1);
 //					fname = System.currentTimeMillis() + "." + ext;
 					fname = filename;
-					//up load file
-					part.write(uploadPath + "/" + fname);
-					//ghi tên file vào data
-					category.setImages(fname);
+					part.write(uploadPath + "/" + fname); //up load file
+					category.setImages(fname); //ghi tên file vào data
 				}
 				else {
-					category.setImages("C:\\Users\\ACER\\OneDrive\\Pictures\\Screenshots\\Default");
+					category.setImages(fileold);
 				}
 			}
 			catch (Exception e){

@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<form action="${pageContext.request.contextPath}/admin/category/insert" method = "post" enctype="multipart/form-data">
+	<label for="cate_name">Category name:</label><br> 
+	<input type="text" id="cate_name" name="cate_name"> <br> 
+	
+	<label for="images">Images:</label> <br>
+	<input type="file" id="images" name="images" ><br>
+	
+	<label for="active">Active:</label> <br>
+<!-- 	<input type="text" id="active" name="active" ><br>  -->
+	<input type="radio" id="active_on" name="active" value = "1" checked> <br>
+	<label for = "html" >Đang hoạt động</label>
+	<input type="radio" id="active_off" name="active" value = "0" >
+	<label for = "css" >Khóa</label> <br>
+	<br> <input type="submit" value="Submit">
+</form>
